@@ -14,3 +14,5 @@ jobs:
     uses: Matter-Tech/matter-library-actions/.github/workflows/release.yaml@v0.0.1
     with:
       release-type: ${{github.event.inputs.release-type}}
+    secrets:
+      PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
