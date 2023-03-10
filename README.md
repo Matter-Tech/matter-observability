@@ -34,6 +34,12 @@ Make sure you have all supported python versions installed in your machine:
 hatch env create
 ```
 
+### Locate the new environment
+
+```console
+hatch env find default
+```
+
 Do your changes...
 
 ### Run the tests
