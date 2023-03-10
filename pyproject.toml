@@ -1,8 +1,8 @@
 [project]
-name = "matter-library-template"
-description = "A template for new Matter's library"
+name = "matter-observability"
+description = "A template for Matter's observability library"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 license = "MIT"
 keywords = []
 authors = [
@@ -20,12 +20,12 @@ dependencies = []
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://github.com/Matter-Tech/matter-library-template#readme"
-Issues = "https://github.com/Matter-Tech/matter-library-template/issues"
-Source = "https://github.com/Matter-Tech/matter-library-template"
+Documentation = "https://github.com/Matter-Tech/matter-observability#readme"
+Issues = "https://github.com/Matter-Tech/matter-observability/issues"
+Source = "https://github.com/Matter-Tech/matter-observability"
 
 [tool.hatch.version]
-path = "matter_library_template/__about__.py"
+path = "matter_observability/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -66,7 +66,7 @@ line-length = 120
 branch = true
 parallel = true
 omit = [
-    "matter_library_template/__about__.py",
+    "matter_observability/__about__.py",
 ]
 
 [tool.coverage.report]

@@ -1,4 +1,4 @@
-# matter-exceptions
+# matter-observability
 
 **Table of Contents**
 
@@ -7,19 +7,20 @@
 
 ## Getting started
 
-After you have created a project using this template, rename all occurrences of *matter_library_template*
-to the new library's name.
+TODO
+
 
 ## Installation
 
 ```console
-pip install matter-exceptions
+pip install matter-observability
 ```
 
 ## Contributing
 
 Make sure you have all supported python versions installed in your machine:
 
+* 3.9
 * 3.10
 * 3.11
 
