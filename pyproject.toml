@@ -2,11 +2,11 @@
 name = "matter-observability"
 description = "A template for Matter's observability library"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "Rômulo Jales", email = "romulo@thisismatter.com" },
+  { name = "Tomer Sasson", email = "tomer@thisismatter.com" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -16,7 +16,10 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+    "matter-exceptions==0.1.1",
+    "starlette_exporter==0.15.1",
+]
 dynamic = ["version"]
 
 [project.urls]
@@ -29,11 +32,14 @@ path = "matter_observability/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
+    "matter-observability",
     "pytest",
     "pytest-cov",
+    "pytest-asyncio",
     "black",
     "mypy",
-    "ruff"
+    "ruff",
+    "python-dotenv",
 ]
 
 [tool.hatch.envs.default.scripts]
