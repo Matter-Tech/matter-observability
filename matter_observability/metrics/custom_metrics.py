@@ -5,8 +5,6 @@ from matter_observability.config import Config
 from .utils import registry
 
 
-
-
 GAUGE_PROCESSING_TIME = Gauge(
     f"{Config.INSTANCE_NAME}_processing_time",
     f"Processing time in {Config.INSTANCE_NAME.capitalize()}",

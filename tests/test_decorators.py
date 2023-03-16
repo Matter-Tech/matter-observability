@@ -15,32 +15,28 @@ from matter_observability.metrics import (
 )
 
 
-
 def test_should_set_gauge_value_sync():
-
     @gauge_value(label="test")
     def to_be_decorated(gauge):
         gauge.set(10.0)
 
     to_be_decorated()
     labeled_gauge = LabeledGauge(metric=GAUGE_CUSTOM, label="test")
-    assert labeled_gauge.metric._metrics[("test", )]._value._value == 10.0
+    assert labeled_gauge.metric._metrics[("test",)]._value._value == 10.0
 
 
 @pytest.mark.asyncio
 async def test_should_set_gauge_value_async():
-
     @gauge_value(label="test")
     async def to_be_decorated(gauge):
         gauge.set(10.0)
 
     await to_be_decorated()
     labeled_gauge = LabeledGauge(metric=GAUGE_CUSTOM, label="test")
-    assert labeled_gauge.metric._metrics[("test", )]._value._value == 10.0
+    assert labeled_gauge.metric._metrics[("test",)]._value._value == 10.0
 
 
 def test_should_collect_duration_sync():
-
     @measure_processing_time(label="test")
     def to_be_decorated():
         time.sleep(1)
@@ -52,7 +48,6 @@ def test_should_collect_duration_sync():
 
 @pytest.mark.asyncio
 async def test_should_collect_duration_async():
-
     @measure_processing_time(label="test")
     async def to_be_decorated():
         time.sleep(1)
@@ -73,7 +68,7 @@ def test_should_count_occurrences_sync():
         to_be_decorated()
 
     labeled_counter = LabeledCounter(metric=COUNTER_CUSTOM, label=test_label)
-    assert labeled_counter.metric._metrics[(test_label, )]._value._value == 10
+    assert labeled_counter.metric._metrics[(test_label,)]._value._value == 10
 
 
 @pytest.mark.asyncio
@@ -88,4 +83,4 @@ async def test_should_count_occurrences_async():
         await to_be_decorated()
 
     labeled_counter = LabeledCounter(metric=COUNTER_CUSTOM, label=test_label)
-    assert labeled_counter.metric._metrics[(test_label, )]._value._value == 10
+    assert labeled_counter.metric._metrics[(test_label,)]._value._value == 10

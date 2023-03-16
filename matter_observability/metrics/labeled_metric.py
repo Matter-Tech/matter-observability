@@ -1,9 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-
 class LabeledMetric(ABC):
-
     def __init__(self, **kwargs):
         self.use_push_gateway = kwargs.get("use_push_gateway", False)
         self.metric = kwargs["metric"]

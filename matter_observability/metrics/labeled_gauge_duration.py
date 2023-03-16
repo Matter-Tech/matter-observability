@@ -4,24 +4,17 @@ import logging
 from .labeled_gauge import LabeledGauge
 
 
-
 class LabeledGaugeDuration(LabeledGauge):
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
 
     @property
     def label_parameter_name(self):
         return "action"
 
-
     def start(self):
         self.start_time = time.time()
-        logging.info(
-            f"Start measuring for {self._labeled_metric._name} => {self._labeled_metric._documentation}"
-        )
-
+        logging.info(f"Start measuring for {self._labeled_metric._name} => {self._labeled_metric._documentation}")
 
     def stop(self):
         self.stop_time = time.time()

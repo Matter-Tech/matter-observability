@@ -7,7 +7,6 @@ from .labeled_counter import LabeledCounter
 from .custom_metrics import GAUGE_CUSTOM, GAUGE_PROCESSING_TIME, COUNTER_CUSTOM
 
 
-
 def gauge_value(label: str, use_push_gateway: bool = False):
     labeled_gauge = LabeledGauge(use_push_gateway=use_push_gateway, metric=GAUGE_CUSTOM, label=label)
 
@@ -28,7 +27,9 @@ def gauge_value(label: str, use_push_gateway: bool = False):
 
 
 def measure_processing_time(label: str, use_push_gateway: bool = False):
-    labeled_processing_time = LabeledGaugeDuration(use_push_gateway=use_push_gateway, metric=GAUGE_PROCESSING_TIME, label=label)
+    labeled_processing_time = LabeledGaugeDuration(
+        use_push_gateway=use_push_gateway, metric=GAUGE_PROCESSING_TIME, label=label
+    )
 
     def wrapped(func):
         @functools.wraps(func)

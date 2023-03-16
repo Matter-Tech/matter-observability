@@ -10,7 +10,6 @@ registry = CollectorRegistry()
 job_name = f"batch_{Config.INSTANCE_NAME}"
 
 
-
 def publish_metrics():
     if Config.ENABLE_METRICS:
         try:
@@ -21,6 +20,4 @@ def publish_metrics():
                 timeout=1,  # The connection timeout
             )
         except (OSError, HTTPError) as ex:
-            logging.warning(
-                f"Observability: Unable to send metrics to the Push Gateway: {str(ex)}"
-            )
+            logging.warning(f"Observability: Unable to send metrics to the Push Gateway: {str(ex)}")

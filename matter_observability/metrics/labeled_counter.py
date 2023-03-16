@@ -4,9 +4,7 @@ from .utils import publish_metrics
 from .labeled_metric import LabeledMetric
 
 
-
 class LabeledCounter(LabeledMetric):
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
