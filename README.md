@@ -3,11 +3,11 @@
 **Table of Contents**
 
 - [Installation](#installation)
-- [License](#license)
+- [License](./LICENSE)
 
 ## Background
 
-The Python observability library is a powerful tool for developers looking to improve their observability in Kubernetes environments. Specifically designed to integrate with FastAPI applications, this library offers support for both endpoint and push-gateway integration with Prometheus, allowing developers to easily monitor the performance and behavior of their applications.
+The Matter observability library for Python is a powerful tool for developers looking to improve their observability in Kubernetes environments. Specifically designed to integrate with FastAPI applications, this library offers support for both endpoint and push-gateway integration with Prometheus, allowing developers to easily monitor the performance and behavior of their applications.
 
 The library provides a range of logging and metrics functionality, giving developers granular visibility into the inner workings of their applications. With logging, developers can easily track and diagnose errors, warnings, and other issues, while metrics enable them to track performance metrics like response time, request volume, and error rates.
 
