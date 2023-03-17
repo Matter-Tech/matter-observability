@@ -18,6 +18,18 @@ Looking towards the future, the Python observability library is committed to exp
 
 ## Getting started
 
+### Integrate from FastAPI:
+```python
+# app is a Fast API app
+app = FastAPI(
+    root_path=env.PATH_PREFIX,
+)
+
+from matter_observability.fastapi import add_middleware
+add_middleware(app=app)
+```
+
+
 ### Use for setting Custom Metrics:
 
 Set a Gauge:
@@ -138,9 +150,18 @@ await my_func()
 
 ## Installation
 
+Install the Library:
 ```console
 pip install matter-observability
 ```
+
+Make sure that you have set the following ENV values:
+```env
+SERVER_LOG_LEVEL=debug
+PROMETHEUS_PUSH_GATEWAY_HOST=localhost
+INSTANCE_NAME=observability_instance
+```
+
 
 ## Contributing
 
