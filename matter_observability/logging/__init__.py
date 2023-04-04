@@ -1,3 +1,3 @@
 __all__ = []
 
-from logging_config import LOGGING_CONFIG
+from .logging_config import LOGGING_CONFIG
