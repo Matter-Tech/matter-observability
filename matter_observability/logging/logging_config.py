@@ -1,6 +1,7 @@
-from matter_observability.config import Config
+from matter_observability.config import Config  # pragma: no cover
 
-LOGGING_CONFIG = {
+
+LOGGING_CONFIG = {  # pragma: no cover
     "version": 1,
     "filters": {"request_id": {"()": "matter_observability.fastapi.request_id.RequestIdLogFilter"}},
     "formatters": {

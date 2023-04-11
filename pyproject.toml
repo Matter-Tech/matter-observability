@@ -18,6 +18,7 @@ classifiers = [
 ]
 dependencies = [
     "starlette_exporter==0.15.1",
+    "matter-exceptions==1.0.*"
 ]
 dynamic = ["version"]
 
@@ -32,9 +33,11 @@ path = "matter_observability/__about__.py"
 [tool.hatch.envs.default]
 dependencies = [
     "matter-observability",
+    "fastapi",
     "pytest",
     "pytest-cov",
     "pytest-asyncio",
+    "pytest-mock",
     "black",
     "mypy",
     "ruff",
@@ -42,10 +45,10 @@ dependencies = [
 ]
 
 [tool.hatch.envs.default.scripts]
-test = "pytest  -W error --cov-report=term-missing --cov-config=pyproject.toml --cov=matter_exceptions --cov=tests {args}"
+test = "pytest -W error --cov-report=term-missing -c=pyproject.toml --cov=matter_observability {args}"
 no-cov = "test --no-cov {args}"
 typing = "mypy --install-types --non-interactive {args:matter_exceptions tests}"
-style = [
+style =     [
   "ruff {args:.}",
   "black --check --diff {args:.}",
 ]
