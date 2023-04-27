@@ -31,6 +31,8 @@ Source = "https://github.com/Matter-Tech/matter-observability"
 path = "matter_observability/__about__.py"
 
 [tool.hatch.envs.default]
+type = "virtual"
+path= "venv"
 dependencies = [
     "matter-observability",
     "fastapi",
