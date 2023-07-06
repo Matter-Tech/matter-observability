@@ -6,7 +6,7 @@ from .request_id import process_request_id
 
 
 def configure_middleware(app, skip_paths=None):
-    metrics_path = "/internal/metrics"
+    metrics_path = Config.PROMETHEUS_METRIC_ENDPOINT
 
     app.middleware("http")(process_request_id)
 

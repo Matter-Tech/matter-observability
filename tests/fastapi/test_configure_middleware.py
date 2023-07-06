@@ -30,5 +30,5 @@ def test_configure_middlewares_happy_path(mocker):
     configure_middleware(app)
 
     app.add_middleware.assert_called_with(
-        PrometheusMiddleware, app_name="observability_instance", group_paths=True, skip_paths=["/internal/metrics"]
+        PrometheusMiddleware, app_name="observability_instance", group_paths=True, skip_paths=["/stats/prometheus"]
     )
