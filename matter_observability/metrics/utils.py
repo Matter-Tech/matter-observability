@@ -6,7 +6,7 @@ from prometheus_client import push_to_gateway, CollectorRegistry
 from matter_observability.config import Config
 from matter_observability.exceptions import MisConfigurationError
 
-registry = CollectorRegistry()
+REGISTRY = CollectorRegistry()
 job_name = f"batch_{Config.INSTANCE_NAME}"
 
 
@@ -19,7 +19,7 @@ def publish_metrics():
             push_to_gateway(
                 f"{Config.PROMETHEUS_PUSH_GATEWAY_HOST}:9091",
                 job=job_name,
-                registry=registry,
+                registry=REGISTRY,
                 timeout=1,  # The connection timeout
             )
         except (OSError, HTTPError) as ex:
