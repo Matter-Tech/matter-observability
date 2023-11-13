@@ -17,7 +17,7 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-    "starlette_exporter==0.15.1",
+    "starlette_exporter==0.17.1",
     "matter-exceptions>=1.1.0"
 ]
 dynamic = ["version"]
