@@ -1,6 +1,5 @@
 from matter_observability.config import Config  # pragma: no cover
 
-
 LOGGING_CONFIG_BASIC = {
     "version": 1,
     "formatters": {

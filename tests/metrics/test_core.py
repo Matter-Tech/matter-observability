@@ -2,12 +2,12 @@ import time
 import uuid
 
 from matter_observability.metrics import (
-    LabeledGauge,
-    LabeledGaugeDuration,
-    LabeledCounter,
+    COUNTER_CUSTOM,
     GAUGE_CUSTOM,
     GAUGE_PROCESSING_TIME,
-    COUNTER_CUSTOM,
+    LabeledCounter,
+    LabeledGauge,
+    LabeledGaugeDuration,
 )
 
 

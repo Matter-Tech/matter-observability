@@ -1,5 +1,6 @@
 import os
-from prometheus_client import Gauge, Counter
+
+from prometheus_client import Counter, Gauge
 
 from matter_observability.config import Config
 

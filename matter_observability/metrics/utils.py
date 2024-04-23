@@ -1,7 +1,7 @@
 import logging
 from urllib.error import HTTPError
 
-from prometheus_client import push_to_gateway, CollectorRegistry
+from prometheus_client import CollectorRegistry, push_to_gateway
 
 from matter_observability.config import Config
 from matter_observability.exceptions import MisConfigurationError
@@ -23,4 +23,4 @@ def publish_metrics():
                 timeout=1,  # The connection timeout
             )
         except (OSError, HTTPError) as ex:
-            logging.warning(f"Observability: Unable to send metrics to the Push Gateway: {str(ex)}")
+            logging.warning(f"Observability: Unable to send metrics to the Push Gateway: {ex!s}")

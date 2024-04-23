@@ -1,7 +1,7 @@
 import logging
 
-from .utils import publish_metrics
 from .labeled_metric import LabeledMetric
+from .utils import publish_metrics
 
 
 class LabeledCounter(LabeledMetric):

@@ -3,10 +3,10 @@ import logging
 import pytest
 
 from matter_observability.fastapi.request_id import (
-    process_request_id,
-    get_request_id,
     RequestIdLogFilter,
     _request_id_ctx_var,
+    get_request_id,
+    process_request_id,
 )
 
 
