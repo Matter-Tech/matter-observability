@@ -1,5 +1,5 @@
-import time
 import logging
+import time
 
 from .labeled_gauge import LabeledGauge
 

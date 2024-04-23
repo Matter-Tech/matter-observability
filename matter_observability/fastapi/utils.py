@@ -2,6 +2,7 @@ from starlette_exporter import PrometheusMiddleware, handle_metrics
 
 from matter_observability.config import Config
 from matter_observability.exceptions import MisConfigurationError
+
 from .request_id import process_request_id
 
 

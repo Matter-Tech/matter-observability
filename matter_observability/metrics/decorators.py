@@ -1,10 +1,10 @@
 import functools
 from asyncio import iscoroutinefunction
 
+from .custom_metrics import COUNTER_CUSTOM, GAUGE_CUSTOM, GAUGE_PROCESSING_TIME
+from .labeled_counter import LabeledCounter
 from .labeled_gauge import LabeledGauge
 from .labeled_gauge_duration import LabeledGaugeDuration
-from .labeled_counter import LabeledCounter
-from .custom_metrics import GAUGE_CUSTOM, GAUGE_PROCESSING_TIME, COUNTER_CUSTOM
 
 
 def gauge_value(label: str, use_push_gateway: bool = False):
