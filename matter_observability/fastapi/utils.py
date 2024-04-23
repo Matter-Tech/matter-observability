@@ -7,7 +7,7 @@ from matter_observability.exceptions import MisConfigurationError
 from .request_id import process_request_id
 
 
-def configure_middleware(app: FastAPI, skip_paths: list[str] | None = None) -> None:
+def configure_middleware(app: FastAPI) -> None:
     metrics_path = "/internal/metrics"
 
     app.middleware("http")(process_request_id)
