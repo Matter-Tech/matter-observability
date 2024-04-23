@@ -36,6 +36,7 @@ path= "venv"
 dependencies = [
     "matter-observability",
     "fastapi",
+    "prometheus-fastapi-instrumentator",
     "pytest",
     "pytest-cov",
     "pytest-asyncio",

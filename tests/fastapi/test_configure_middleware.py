@@ -1,18 +1,12 @@
-import pytest
-from fastapi import FastAPI
-from starlette_exporter import PrometheusMiddleware
+from unittest.mock import Mock
 
-from matter_observability.exceptions import MisConfigurationError
+from fastapi import FastAPI
+from pytest_mock import MockerFixture
+
 from matter_observability.fastapi import configure_middleware
 
 
-def test_configure_middleware_throws_exception_if_enable_metrics_is_not_set(mocker):
-    mocker.patch("matter_observability.config.Config.INSTANCE_NAME", None)
-    with pytest.raises(MisConfigurationError):
-        configure_middleware(FastAPI())
-
-
-def test_configure_middlewares_does_not_add_prometheus_middleware_if_enable_metrics_is_not_set(mocker):
+def test_configure_middlewares_does_not_add_prometheus_middleware_if_enable_metrics_is_not_set(mocker: MockerFixture):
     mocker.patch("matter_observability.config.Config.ENABLE_METRICS", False)
 
     app = FastAPI()
@@ -23,12 +17,15 @@ def test_configure_middlewares_does_not_add_prometheus_middleware_if_enable_metr
     app.add_middleware.assert_called_once()
 
 
-def test_configure_middlewares_happy_path(mocker):
+def test_configure_middlewares_happy_path(mocker: MockerFixture):
     app = FastAPI()
-    app.add_middleware = mocker.Mock()
+    mocker.patch.object(FastAPI, "add_middleware")
+    instrumentator_mock = Mock
+    mocker.patch(f"{configure_middleware.__module__}.Instrumentator", return_value=instrumentator_mock)
+    instrumentator_mock.instrument = Mock(return_value=instrumentator_mock)
+    instrumentator_mock.expose = Mock(return_value=instrumentator_mock)
 
     configure_middleware(app)
 
-    app.add_middleware.assert_called_with(
-        PrometheusMiddleware, app_name="observability_instance", group_paths=True, skip_paths=["/internal/metrics"]
-    )
+    instrumentator_mock.instrument.assert_called_once_with(app=app)
+    instrumentator_mock.expose.assert_called_once_with(app=app, endpoint="/internal/metrics")
