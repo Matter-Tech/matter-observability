@@ -10,8 +10,6 @@ def configure_middleware(app: FastAPI, skip_paths: list[str] | None = None) -> N
 
     app.middleware("http")(process_request_id)
 
-    Instrumentator(
-        excluded_handlers=skip_paths,
-        should_respect_env_var=True,
-        env_var_name="ENABLE_METRICS"
-    ).instrument(app=app).expose(app=app, endpoint=metrics_path)
+    Instrumentator(excluded_handlers=skip_paths, should_respect_env_var=True, env_var_name="ENABLE_METRICS").instrument(
+        app=app
+    ).expose(app=app, endpoint=metrics_path)

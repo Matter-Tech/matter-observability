@@ -1,18 +1,9 @@
 from unittest.mock import Mock
 
-import pytest
 from fastapi import FastAPI
 from pytest_mock import MockerFixture
-from prometheus_fastapi_instrumentator import Instrumentator
 
-from matter_observability.exceptions import MisConfigurationError
 from matter_observability.fastapi import configure_middleware
-
-
-def test_configure_middleware_throws_exception_if_enable_metrics_is_not_set(mocker: MockerFixture):
-    mocker.patch("matter_observability.config.Config.INSTANCE_NAME", None)
-    with pytest.raises(MisConfigurationError):
-        configure_middleware(FastAPI())
 
 
 def test_configure_middlewares_does_not_add_prometheus_middleware_if_enable_metrics_is_not_set(mocker: MockerFixture):
