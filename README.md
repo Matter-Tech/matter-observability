@@ -160,7 +160,9 @@ Make sure that you have set the following ENV values:
 SERVER_LOG_LEVEL=debug
 PROMETHEUS_PUSH_GATEWAY_HOST=localhost
 INSTANCE_NAME=observability_instance
+ENABLE_METRICS=true
 ```
+The last one is required for the API metrics endpoint to be exposed - they are not enabled by default!
 
 
 ## Contributing
@@ -169,6 +171,7 @@ Make sure you have all supported python versions installed in your machine:
 
 * 3.10
 * 3.11
+* 3.12
 
 ### Install hatch in your system
 
